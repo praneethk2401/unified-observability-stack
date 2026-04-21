@@ -67,12 +67,12 @@ resource "aws_security_group" "prometheus" {
   }
 
   ingress {
-  description = "Loki"
-  from_port   = 3100
-  to_port     = 3100
-  protocol    = "tcp"
-  cidr_blocks = [var.allowed_cidr]
-}
+    description = "Loki"
+    from_port   = 3100
+    to_port     = 3100
+    protocol    = "tcp"
+    cidr_blocks = [var.allowed_cidr]
+  }
 
   egress {
     from_port   = 0
