@@ -6,25 +6,8 @@ traces — with automated alerting and operational runbooks.
 
 ## Architecture Overview
 
-┌─────────────────────────────────────────────────────────────┐
-│                    AWS Account (ap-south-2)                 │
-│                                                             │
-│  ┌─────────────────────────────────────────────────────┐    │
-│  │                 Monitoring VPC (10.0.0.0/16)        │    │
-│  │                                                     │    │
-│  │  ┌─────────────────────┐  ┌─────────────────────┐   │    │
-│  │  │   Prometheus EC2    │  │    Grafana EC2      │   │    │
-│  │  │                     │  │                     │   │    │
-│  │  │  • Prometheus :9090 │  │  • Grafana    :3000 │   │    │
-│  │  │  • Node Exporter    │  │                     │   │    │
-│  │  │  • AlertManager     │  │                     │   │    │
-│  │  │  • Loki       :3100 │  │                     │   │    │
-│  │  │  • Promtail         │  │                     │   │    │
-│  │  │  • Tempo      :3200 │  │                     │   │    │
-│  │  │  • Flask App  :5000 │  │                     │   │    │
-│  │  └─────────────────────┘  └─────────────────────┘   │    │
-│  └─────────────────────────────────────────────────────┘    │
-└─────────────────────────────────────────────────────────────┘
+<img width="326" height="290" alt="image" src="https://github.com/user-attachments/assets/d17e4e40-acbb-4b17-9c6d-beab3fb48c95" />
+
 Metrics  → Prometheus + Node Exporter → Grafana
 Logs     → Promtail → Loki → Grafana
 Traces   → Flask App + OpenTelemetry → Tempo → Grafana
@@ -89,33 +72,7 @@ Operational runbooks for every alert type:
 | CI/CD       | GitHub Actions                 |
 
 ## Project Structure
-
-unified-observability-stack/
-├── .github/
-│   └── workflows/
-│       └── terraform-validate.yml  # CI/CD pipeline
-├── terraform/
-│   ├── modules/
-│   │   ├── vpc/                    # VPC, subnet, IGW
-│   │   └── ec2/                    # EC2, IAM, security groups
-│   └── environments/
-│       └── monitoring/             # Monitoring environment
-├── sample-app/
-│   ├── app.py                      # Flask app with OTel tracing
-│   ├── requirements.txt
-│   └── setup.sh                    # Installation script
-├── scripts/
-│   ├── alertmanager-setup.sh       # AlertManager installation
-│   └── prometheus-rules.yml        # Alert rules
-├── runbooks/
-│   ├── high-cpu-usage.md           # CPU alert runbook
-│   ├── high-memory-usage.md        # Memory alert runbook
-│   └── instance-down.md            # Instance down runbook
-├── docs/
-│   └── known-issues.md             # Known issues and workarounds
-├── diagrams/
-│   └── screenshots/                # AWS Console evidence
-└── README.md
+<img width="334" height="398" alt="image" src="https://github.com/user-attachments/assets/bcf51465-f24a-4b2b-84c4-281cb8c033fe" />
 
 ## Known Issues
 
