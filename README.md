@@ -5,6 +5,7 @@ demonstrating the three pillars of observability — metrics, logs, and
 traces — with automated alerting and operational runbooks.
 
 ## Architecture Overview
+
 ┌─────────────────────────────────────────────────────────────┐
 │                    AWS Account (ap-south-2)                 │
 │                                                             │
@@ -88,6 +89,7 @@ Operational runbooks for every alert type:
 | CI/CD       | GitHub Actions                 |
 
 ## Project Structure
+
 unified-observability-stack/
 ├── .github/
 │   └── workflows/
