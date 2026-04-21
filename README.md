@@ -46,8 +46,6 @@ Prometheus detects threshold breach
 Alert moves INACTIVE → PENDING → FIRING
 ↓
 AlertManager receives firing alert
-↓
-Notification sent to SNS
 
 ## Runbooks
 
