@@ -11,7 +11,7 @@ traces — with automated alerting and operational runbooks.
 Metrics  → Prometheus + Node Exporter → Grafana
 Logs     → Promtail → Loki → Grafana
 Traces   → Flask App + OpenTelemetry → Tempo → Grafana
-Alerts   → Prometheus Rules → AlertManager → SNS
+Alerts   → Prometheus Rules → AlertManager
 
 ## Three Pillars of Observability
 
