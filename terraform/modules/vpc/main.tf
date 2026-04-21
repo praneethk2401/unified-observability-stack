@@ -57,3 +57,8 @@ resource "aws_route_table_association" "public" {
   subnet_id      = aws_subnet.public.id
   route_table_id = aws_route_table.public.id
 }
+
+resource "time_sleep" "wait_for_ec2_termination" {
+  depends_on       = [aws_subnet.public]
+  destroy_duration = "60s"
+}

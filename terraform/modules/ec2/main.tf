@@ -123,7 +123,10 @@ resource "aws_instance" "prometheus" {
   subnet_id              = var.subnet_id
   iam_instance_profile   = aws_iam_instance_profile.ec2_profile.name
   vpc_security_group_ids = [aws_security_group.prometheus.id]
-  depends_on = [ aws_security_group.prometheus ]
+  depends_on = [
+    aws_security_group.prometheus,
+    aws_iam_instance_profile.ec2_profile
+  ]
 
   user_data = base64encode(<<-EOF
     #!/bin/bash
@@ -218,7 +221,10 @@ resource "aws_instance" "grafana" {
   subnet_id              = var.subnet_id
   iam_instance_profile   = aws_iam_instance_profile.ec2_profile.name
   vpc_security_group_ids = [aws_security_group.grafana.id]
-  depends_on = [ aws_security_group.grafana ]
+  depends_on = [
+    aws_security_group.grafana,
+    aws_iam_instance_profile.ec2_profile
+  ]
 
   user_data = base64encode(<<-EOF
     #!/bin/bash
