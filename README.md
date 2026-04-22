@@ -1,4 +1,4 @@
-markdown# Unified Observability Stack
+### Unified Observability Stack
 
 A production-grade observability platform built on AWS using Terraform,
 demonstrating the three pillars of observability — metrics, logs, and
